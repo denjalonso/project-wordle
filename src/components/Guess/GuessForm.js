@@ -1,6 +1,6 @@
 import React from "react";
 
-function Guess() {
+function GuessForm({ onGuess }) {
   const [guess, setGuess] = React.useState("");
   const reset = () => setGuess("");
 
@@ -10,6 +10,7 @@ function Guess() {
       return;
     }
     console.log({ guess });
+    onGuess(guess);
     reset();
   };
 
@@ -28,4 +29,4 @@ function Guess() {
   );
 }
 
-export default Guess;
+export default GuessForm;
