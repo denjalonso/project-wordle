@@ -1,16 +1,16 @@
 import React from "react";
 
 function GuessForm({ onGuess }) {
-  const [guess, setGuess] = React.useState("");
-  const reset = () => setGuess("");
+  const [tentativeGuess, setTentativeGuess] = React.useState("");
+  const reset = () => setTentativeGuess("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
     if (!event.target.elements["guess-input"].value) {
       return;
     }
-    console.log({ guess });
-    onGuess(guess);
+    console.log({ guess: tentativeGuess });
+    onGuess(tentativeGuess);
     reset();
   };
 
@@ -21,8 +21,8 @@ function GuessForm({ onGuess }) {
         id="guess-input"
         type="text"
         placeholder="Enter your guess"
-        value={guess}
-        onChange={(event) => setGuess(event.target.value.toUpperCase())}
+        value={tentativeGuess}
+        onChange={(event) => setTentativeGuess(event.target.value.toUpperCase())}
         pattern="[A-Za-z]{5}"
         title="Please enter a 5-letter word."
       />
