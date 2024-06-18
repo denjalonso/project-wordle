@@ -3,8 +3,8 @@ import React from "react";
 function GuessResults({ guesses = [] }) {
   return (
     <div className="guess-results">
-      {guesses.map((guess) => (
-        <p key={crypto.randomUUID()} className="guess">
+      {guesses.map((guess, index) => (
+        <p key={index} className="guess">
           {guess}
         </p>
       ))}
