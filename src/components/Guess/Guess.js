@@ -22,6 +22,7 @@ function Guess() {
         placeholder="Enter your guess"
         value={guess}
         onChange={(event) => setGuess(event.target.value.toUpperCase())}
+        pattern="[A-Za-z]{5}"
       />
     </form>
   );
