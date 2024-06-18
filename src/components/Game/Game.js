@@ -16,7 +16,7 @@ function Game() {
   return (
     <>
       <GuessResults guesses={guesses} />
-      <GuessForm onGuess={(guess) => setGuesses([...guesses, guess])} />
+      <GuessForm onGuess={(tentativeGuess) => setGuesses([...guesses, tentativeGuess])} />
     </>
   );
 }
