@@ -6,6 +6,9 @@ function Guess() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    if (!event.target.elements["guess-input"].value) {
+      return;
+    }
     console.log({ guess });
     reset();
   };
@@ -18,7 +21,7 @@ function Guess() {
         type="text"
         placeholder="Enter your guess"
         value={guess}
-        onChange={(event) => setGuess(event.target.value)}
+        onChange={(event) => setGuess(event.target.value.toUpperCase())}
       />
     </form>
   );
