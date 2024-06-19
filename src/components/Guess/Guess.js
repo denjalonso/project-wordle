@@ -4,7 +4,11 @@ function Guess({ word, index }) {
   return (
     <p key={index} className="guess">
       {word.map((slot) => (
-        <span key={slot.id} data-id={slot.id} className="cell">
+        <span
+          key={slot.id}
+          data-id={slot.id}
+          className={`cell ${slot.status ?? ""}`.trim()}
+        >
           {slot.letter}
         </span>
       ))}
