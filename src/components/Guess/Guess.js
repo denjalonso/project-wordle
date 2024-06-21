@@ -1,17 +1,24 @@
 import React from "react";
+import { range } from "../../utils";
+import { checkGuess } from "../../game-helpers";
 
-function Guess({ word, index }) {
+function Cell({ letter, status }) {
+  return <span className={`cell ${status ?? ""}`.trim()}>{letter}</span>;
+}
+
+function Guess({ word, answer }) {
+  const result = checkGuess(word, answer);
   return (
-    <p key={index} className="guess">
-      {word.map((slot) => (
-        <span
-          key={slot.id}
-          data-id={slot.id}
-          className={`cell ${slot.status ?? ""}`.trim()}
-        >
-          {slot.letter}
-        </span>
-      ))}
+    <p className="guess">
+      {range(5).map((num) => {
+        return (
+          <Cell
+            key={num}
+            letter={result ? result[num].letter : undefined}
+            status={result ? result[num].status : undefined}
+          />
+        );
+      })}
     </p>
   );
 }
