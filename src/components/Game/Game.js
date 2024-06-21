@@ -32,13 +32,8 @@ function Game() {
     <>
       <GuessResults guesses={guesses} answer={answer} />
       <GuessForm onGuess={handleOnGuess} isDisabled={status !== "running"} />
-      <Banner status={status}>
-        {status === "won" ? (
-          <HappyBanner intents={intents} />
-        ) : (
-          <SadBanner answer={answer} />
-        )}
-      </Banner>
+      {status === "won" && <HappyBanner intents={intents} />}{" "}
+      {status === "lost" && <SadBanner answer={answer} />}
     </>
   );
 }
