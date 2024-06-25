@@ -15,6 +15,8 @@ html {
   --color-gray-500: hsl(0deg 0% 50%);
   --color-gray-700: hsl(0deg 0% 75%);
   --color-gray-900: hsl(0deg 0% 90%);
+
+  --keboard-gap: 5px;
 }
 
 /*
@@ -229,4 +231,40 @@ h1 {
   to {
     transform: translateY(0%);
   }
+}
+
+.keyboard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--keboard-gap);
+}
+
+.keyboard-row {
+  display: flex;
+  justify-content: center;
+  gap: var(--keboard-gap);
+}
+
+.keyboard-key {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 4px;
+  display: grid;
+  place-content: center;
+  background: var(--color-gray-900);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.keyboard-key.correct {
+  background: var(--color-success);
+}
+
+.keyboard-key.incorrect {
+  background: var(--color-gray-300);
+}
+
+.keyboard-key.misplaced {
+  background: var(--color-warning);
 }
